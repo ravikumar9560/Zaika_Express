@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
+import Body from "./components/Body";
 
-// import { Footer } from "./components/Footer";
+import { Footer } from "./components/Footer";
 import Header from "./components/Header";
 
 // import  RestaurantMenu  from './components/RestaurantMenu'
@@ -9,7 +10,6 @@ import Header from "./components/Header";
 
 function App() {
   // const [state , setState] = useState(true);
-
   return (
     <>
       <Header />
@@ -21,7 +21,7 @@ function App() {
 
       {/* <Memo/> */}
       {/* <Ref/> */}
-      {/* <MenuCard /> */}
+      {/* <MenuCard/> */}
 
       {/* <RestaurantMenu/> */}
 
@@ -29,8 +29,8 @@ function App() {
         if("/about" ==> about )
           if("/contact" ==> contact ) */}
 
-      {/* <Body /> */}
-      {/* <Footer/> */}
+      {/* <Body/> */}
+      <Footer />
       {/* <RestaurantMenu/> */}
     </>
   );

@@ -1,3 +1,41 @@
+// import React from 'react'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { clearCart } from '../utils/CartSlice'
+
+// export const Cart = () => {
+//   const dispatch = useDispatch()
+//   const Cartitems = useSelector((Store)=>{return Store.cart.items})
+//   const handleClaerCart = () => {
+//     dispatch(clearCart())
+//   }
+//   return (
+//     <div>
+
+//     <h1>Cart Items</h1>
+//     <button onClick={handleClaerCart}>Clear Cart</button>
+//     {Cartitems.length === 0 ?
+//      <h1>Your Cart is empty</h1> :
+
+//      <div>
+//         <p>Total Itam : {Cartitems.length}</p>
+//         <ul>
+//           {Cartitems.map((item , idx) => {
+//             console.log(item)
+//             return (
+//               <li key={idx} >
+//               {item.name} - Rs.{item.price/100}
+//             </li>
+//             )
+//           }
+//           )}
+//         </ul>
+//      </div>
+//       }
+
+//     </div>
+//   )
+// }
+
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../utils/CartSlice";

@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { RestaurantCard } from "./RestaurantCard";
-import { Link } from "react-router-dom";
 
-//import { resDetails } from "../utils/info";
+import { Link } from "react-router-dom";
+// import {resDetails} from "../utils/info"
+import { RestaurantCard } from "./RestaurantCard";
 
 function Body() {
   const [listOfRes, setListOfRes] = useState([]);
   const [inputName, setInputName] = useState("");
   const [allRestaurants, setAllRestaurants] = useState([]); //  ADD THIS
 
+  console.log(listOfRes);
   useEffect(() => {
     fetchData();
   }, []);
@@ -18,12 +19,10 @@ function Body() {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.615962&lng=77.060464&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    //console.log( json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
     const restaurants =
       json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants || [];
-
     setListOfRes(restaurants);
     // console.log(listOfRes.info)
     setAllRestaurants(restaurants); //  ADDED THIS
@@ -54,7 +53,8 @@ function Body() {
             setListOfRes(filteredList);
           }}
         >
-          Search
+          {" "}
+          Search{" "}
         </button>
 
         <button
@@ -66,14 +66,16 @@ function Body() {
             setListOfRes(updatedList);
           }}
         >
-          Top rated Restaurants
+          {" "}
+          Top rated Restaurants{" "}
         </button>
       </div>
       <div className="CardList">
         {listOfRes.map((restaurant) => {
           const info = restaurant.info;
-          console.log(restaurant);
-
+          {
+            /* {console.log(info.id)} */
+          }
           return (
             <Link to={`/restaurants/${info.id}`} key={info.id}>
               <RestaurantCard
