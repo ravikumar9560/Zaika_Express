@@ -52,7 +52,7 @@ import { Contact } from "./components/Contact.jsx";
 import { Error } from "./components/Error.jsx";
 import Body from "./components/Body.jsx";
 import { ResMenu } from "./components/ResMenu.jsx";
-
+const Cart = lazy(() => import("./components/Cart.jsx"));
 const appRouter = createBrowserRouter([
   {
     path: "/",

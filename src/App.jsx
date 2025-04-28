@@ -8,8 +8,8 @@ import Header from "./components/Header";
 // import { ResMenu } from './components/ResMenu'
 
 function App() {
-  console.log("App  component rendering ");
   // const [state , setState] = useState(true);
+
   return (
     <>
       <Header />
