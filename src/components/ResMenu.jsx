@@ -1,7 +1,6 @@
 import useResMenu from "./useResMenu";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { addIteam } from "../utils/CartSlice";
 
 export const ResMenu = () => {
@@ -46,36 +45,37 @@ export const ResMenu = () => {
         <h4 className="text-2xl font-semibold text-gray-700 mb-4">
           Menu Items
         </h4>
-        {itemCards.length === 0 ? (
+        {itemCards && itemCards.length === 0 ? (
           <p className="text-lg text-center text-gray-600">
             No menu items found.
           </p>
         ) : (
           <ul className="space-y-4">
-            {itemCards.map((item) => {
-              const info = item?.card?.info;
-              return (
-                <li
-                  key={info.id}
-                  className="p-4 border border-gray-300 rounded-lg hover:bg-gray-50"
-                >
-                  <h5 className="text-lg font-medium text-gray-800">
-                    {info?.name}
-                  </h5>
-                  <p className="text-sm text-gray-500">{info?.description}</p>
-                  <p className="text-sm text-gray-600 font-semibold mt-2">
-                    {info?.price / 100} INR
-                  </p>
-                  <button
-                    onClick={() => {
-                      handleAddtoCart(info);
-                    }}
+            {itemCards &&
+              itemCards.map((item) => {
+                const info = item?.card?.info;
+                return (
+                  <li
+                    key={info.id}
+                    className="p-4 border border-gray-300 rounded-lg hover:bg-gray-50"
                   >
-                    Add to Cart
-                  </button>
-                </li>
-              );
-            })}
+                    <h5 className="text-lg font-medium text-gray-800">
+                      {info?.name}
+                    </h5>
+                    <p className="text-sm text-gray-500">{info?.description}</p>
+                    <p className="text-sm text-gray-600 font-semibold mt-2">
+                      {info?.price / 100} INR
+                    </p>
+                    <button
+                      onClick={() => {
+                        handleAddtoCart(info);
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                  </li>
+                );
+              })}
           </ul>
         )}
       </div>
